@@ -73,7 +73,7 @@ slt.subheader("Divisão dos dados em treinamento e teste...")
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 slt.subheader("Definição do modelo e utilização do GridSearchCV")
-slt.wrote("Esta etapa do algoritmo pode demorar um pouco. Aguarde alguns instantes...")
+slt.write("Esta etapa do algoritmo pode demorar um pouco. Aguarde alguns instantes...")
 
 # Definição do modelo a ser utilizado
 rfc = RandomForestClassifier()
