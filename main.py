@@ -52,7 +52,7 @@ slt.subheader("Gráficos Multivariados (observar presença de agrupamentos diago
 scatter_matrix(df)
 slt.pyplot()
 
-slt.subheader("Limpeza e preparação dos dados")
+slt.subheader("Limpeza e preparação dos dados...")
 
 # Limpeza e preparação dos dados
 df = df.drop(['Name', 'Ticket', 'Cabin'], axis=1)
@@ -61,18 +61,19 @@ df['Embarked'] = df['Embarked'].fillna(df['Embarked'].mode()[0])
 df['Sex'] = df['Sex'].map({'male': 0, 'female': 1}).astype(int)
 df['Embarked'] = df['Embarked'].map({'S': 0, 'C': 1, 'Q': 2}).astype(int)
 
-slt.subheader("Definição das variáveis independentes e dependentes")
+slt.subheader("Definição das variáveis independentes e dependentes...")
 
 # Definição das variáveis independentes e dependentes
 X = df.drop('Survived', axis=1)
 y = df['Survived']
 
-slt.subheader("Divisão dos dados em treinamento e teste")
+slt.subheader("Divisão dos dados em treinamento e teste...")
 
 # Divisão dos dados em treinamento e teste
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 slt.subheader("Definição do modelo e utilização do GridSearchCV")
+slt.wrote("Esta etapa do algoritmo pode demorar um pouco. Aguarde alguns instantes...")
 
 # Definição do modelo a ser utilizado
 rfc = RandomForestClassifier()
@@ -104,7 +105,7 @@ slt.write('Melhor desempenho: ' + str(grid_search.best_score_))
 # Acurácia do modelo no conjunto de teste
 slt.write('Acurácia no conjunto de teste: ' + str(grid_search.score(X_test, y_test)))
 
-slt.subheader("Curva ROC")
+slt.subheader("Curva ROC...")
 
 # Curva ROC
 probas = grid_search.predict_proba(X_test)
