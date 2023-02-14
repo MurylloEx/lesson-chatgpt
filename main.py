@@ -1,6 +1,3 @@
-# Instalação das bibliotecas necessárias
-!pip install seaborn
-!pip install scikit-plot
 
 # Importação das bibliotecas necessárias
 import pandas as pd
